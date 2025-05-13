@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let isLetterOpened = false;
 
     // Open letter on click
-    letter.addEventListener('click', () => {
+    letter.addEventListener('click', (e) => {
+        // Prevent click if button is clicked
+        if (e.target === enterBtn || enterBtn.contains(e.target)) {
+            return;
+        }
+
         if (!isLetterOpened) {
             letter.classList.add('opened');
             isLetterOpened = true;
@@ -16,17 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const paperSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
             paperSound.volume = 0.5;
             paperSound.play();
-
-            // Wait for the flip animation to complete before showing the enter button
-            setTimeout(() => {
-                enterBtn.style.display = 'block';
-                enterBtn.style.opacity = '1';
-            }, 1500); // Match this with the letter flip transition duration
         }
     });
 
     // Enter website
-    enterBtn.addEventListener('click', () => {
+    enterBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent letter flip when clicking button
+        
         // Add page turn sound effect
         const pageTurnSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3');
         pageTurnSound.volume = 0.5;
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 once: true,
                 offset: 100
             });
-        }, 1000); // Match this with the fade-out transition duration
+        }, 1000);
     });
 });
 
