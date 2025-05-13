@@ -4,20 +4,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const landingPage = document.querySelector('.landing-page');
     const mainContent = document.querySelector('.main-content');
     const enterBtn = document.querySelector('.enter-btn');
+    let isLetterOpened = false;
 
     // Open letter on click
     letter.addEventListener('click', () => {
-        if (!letter.classList.contains('opened')) {
+        if (!isLetterOpened) {
             letter.classList.add('opened');
+            isLetterOpened = true;
+            
+            // Add paper rustling sound effect
+            const paperSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
+            paperSound.volume = 0.5;
+            paperSound.play();
         }
     });
 
     // Enter website
     enterBtn.addEventListener('click', () => {
+        // Add page turn sound effect
+        const pageTurnSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3');
+        pageTurnSound.volume = 0.5;
+        pageTurnSound.play();
+
         landingPage.classList.add('fade-out');
         mainContent.style.display = 'block';
+        
         setTimeout(() => {
             mainContent.classList.add('show');
+            // Initialize AOS after showing main content
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
         }, 100);
     });
 });
