@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const paperSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
             paperSound.volume = 0.5;
             paperSound.play();
+
+            // Wait for the flip animation to complete before showing the enter button
+            setTimeout(() => {
+                enterBtn.style.display = 'block';
+                enterBtn.style.opacity = '1';
+            }, 1500); // Match this with the letter flip transition duration
         }
     });
 
@@ -26,17 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
         pageTurnSound.volume = 0.5;
         pageTurnSound.play();
 
+        // Fade out landing page
         landingPage.classList.add('fade-out');
+        
+        // Show main content
         mainContent.style.display = 'block';
         
+        // Wait for fade out animation to complete
         setTimeout(() => {
             mainContent.classList.add('show');
             // Initialize AOS after showing main content
             AOS.init({
                 duration: 1000,
-                once: true
+                once: true,
+                offset: 100
             });
-        }, 100);
+        }, 1000); // Match this with the fade-out transition duration
     });
 });
 
