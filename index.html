@@ -14,207 +14,225 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="main-nav">
-        <div class="nav-logo">❤️</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#beginning">Beginning</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#memories">Memories</a></li>
-            <li><a href="#love-notes">Love Notes</a></li>
-            <li><a href="#calculator">Calculator</a></li>
-            <li><a href="#words">Letters</a></li>
-        </ul>
-        <div class="nav-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
-
-    <div class="music-toggle">
-        <i class="fas fa-music"></i>
-        <span>Background Music</span>
-    </div>
-
-    <section class="hero" id="home">
-        <div class="slideshow">
-            <div class="slide active" style="background-image: url('https://source.unsplash.com/1600x900/?love,couple')">
-                <div class="overlay"></div>
-            </div>
-            <div class="slide" style="background-image: url('https://source.unsplash.com/1600x900/?romance,heart')">
-                <div class="overlay"></div>
-            </div>
-            <div class="slide" style="background-image: url('https://source.unsplash.com/1600x900/?love,memories')">
-                <div class="overlay"></div>
-            </div>
-        </div>
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Once Upon a Time...</h1>
-            <p class="quote">"In you, I found my forever."</p>
-        </div>
-    </section>
-
-    <section class="how-we-met" id="beginning">
-        <div class="container">
-            <h2 data-aos="fade-up">The Beginning</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="date">First Meeting</div>
-                    <div class="content">
-                        <h3>The Day Our Paths Crossed - 09 August 2024</h3>
-                        <p>Describe your first meeting here...</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="date">First Conversation</div>
-                    <div class="content">
-                        <h3>Words That Changed Everything</h3>
-                        <p>Share your first meaningful conversation...</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="date">First Date</div>
-                    <div class="content">
-                        <h3>The Beginning of Forever</h3>
-                        <p>Tell the story of your first date...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="journey" id="gallery">
-        <div class="container">
-            <h2 data-aos="fade-up">Our Journey</h2>
-            <div class="photo-grid">
-                <div class="photo-item" data-aos="zoom-in">
-                    <div class="photo-content">
-                        <img src="https://source.unsplash.com/300x300/?love,couple" alt="Memory 1">
-                        <div class="caption">Your smile here stole my heart</div>
-                    </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in">
-                    <div class="photo-content">
-                        <img src="https://source.unsplash.com/300x300/?romance,heart" alt="Memory 2">
-                        <div class="caption">Our first date</div>
-                    </div>
-                </div>
-                <div class="photo-item" data-aos="zoom-in">
-                    <div class="photo-content">
-                        <img src="https://source.unsplash.com/300x300/?love,memories" alt="Memory 3">
-                        <div class="caption">Forever together</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="letters" id="words">
-        <div class="container">
-            <h2 data-aos="fade-up">Unsent Words</h2>
-            <div class="letters-grid">
-                <div class="letter-card" data-aos="flip-left">
-                    <div class="letter-front">
-                        <h3>My First Letter</h3>
-                        <p>Click to read...</p>
-                    </div>
-                    <div class="letter-back">
-                        <p>Dear Love,</p>
-                        <p>Write your letter here...</p>
-                    </div>
-                </div>
-                <!-- Add more letter cards -->
-            </div>
-        </div>
-    </section>
-
-    <section class="reflections" id="growth">
-        <div class="container">
-            <h2 data-aos="fade-up">In Love, I Grew</h2>
-            <div class="reflections-carousel" data-aos="fade-up">
-                <div class="reflection-item">
-                    <p>"Love taught me that vulnerability is strength..."</p>
-                </div>
-                <!-- Add more reflection items -->
-            </div>
-        </div>
-    </section>
-
-    <section class="goodbye" id="farewell">
-        <div class="container">
-            <h2 data-aos="fade-up">Thank You for Everything</h2>
-            <div class="farewell-message" data-aos="fade-up">
-                <p>Write your final message here...</p>
-            </div>
-            <button class="goodbye-btn" data-aos="fade-up">Goodbye</button>
-        </div>
-    </section>
-
-    <section class="memories" id="memories">
-        <div class="container">
-            <h2 data-aos="fade-up">Our Beautiful Memories</h2>
-            <div class="memory-timeline">
-                <div class="memory-item" data-aos="fade-right">
-                    <div class="memory-date">January 2024</div>
-                    <div class="memory-content">
-                        <h3>Our First Adventure</h3>
-                        <p>Share your special memory here...</p>
-                        <div class="memory-image">
-                            <img src="https://source.unsplash.com/400x300/?adventure,couple" alt="Memory">
+    <!-- Landing Page -->
+    <div class="landing-page">
+        <div class="letter-container">
+            <div class="letter">
+                <div class="letter-front">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-pocket"></div>
+                        <div class="seal">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="address">
+                            <p>To My Beloved</p>
+                            <p>Open with Love ❤️</p>
                         </div>
                     </div>
                 </div>
-                <!-- More memory items will be added dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <section class="love-notes" id="love-notes">
-        <div class="container">
-            <h2 data-aos="fade-up">Love Notes</h2>
-            <div class="notes-board">
-                <div class="add-note">
-                    <textarea placeholder="Write your love note here..."></textarea>
-                    <button class="add-note-btn">Add Note</button>
-                </div>
-                <div class="notes-container">
-                    <!-- Notes will be added dynamically -->
+                <div class="letter-back">
+                    <div class="letter-content">
+                        <div class="letter-paper">
+                            <h2>Welcome to Our Story</h2>
+                            <p>Every love story is beautiful, but ours is my favorite...</p>
+                            <button class="enter-btn">Enter Our Story</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="love-calculator" id="calculator">
-        <div class="container">
-            <h2 data-aos="fade-up">Love Calculator</h2>
-            <div class="calculator-content" data-aos="zoom-in">
-                <div class="calculator-form">
-                    <input type="text" id="name1" placeholder="Your Name">
-                    <input type="text" id="name2" placeholder="Partner's Name">
-                    <button id="calculate-love">Calculate Love</button>
-                </div>
-                <div class="calculator-result">
-                    <div class="love-percentage">0%</div>
-                    <div class="love-message">Enter names to calculate your love percentage!</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
     </div>
 
-    <footer>
-        <p>Made with ❤️ A Love Remembered</p>
-        <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+    <!-- Main Content -->
+    <div class="main-content" style="display: none;">
+        <nav class="main-nav">
+            <div class="nav-logo">❤️</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#beginning">Beginning</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#memories">Memories</a></li>
+                <li><a href="#love-notes">Love Notes</a></li>
+                <li><a href="#words">Letters</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="music-toggle">
+            <i class="fas fa-music"></i>
+            <span>Background Music</span>
         </div>
-    </footer>
+
+        <section class="hero" id="home">
+            <div class="slideshow">
+                <div class="slide active" style="background-image: url('https://source.unsplash.com/1600x900/?love,couple')">
+                    <div class="overlay"></div>
+                </div>
+                <div class="slide" style="background-image: url('https://source.unsplash.com/1600x900/?romance,heart')">
+                    <div class="overlay"></div>
+                </div>
+                <div class="slide" style="background-image: url('https://source.unsplash.com/1600x900/?love,memories')">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Once Upon a Time...</h1>
+                <p class="quote">"In you, I found my forever."</p>
+            </div>
+        </section>
+
+        <section class="how-we-met" id="beginning">
+            <div class="container">
+                <h2 data-aos="fade-up">The Beginning</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="date">First Meeting</div>
+                        <div class="content">
+                            <h3>The Day Our Paths Crossed - 09 August 2024</h3>
+                            <p>Describe your first meeting here...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="date">First Conversation</div>
+                        <div class="content">
+                            <h3>Words That Changed Everything</h3>
+                            <p>Share your first meaningful conversation...</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="date">First Date</div>
+                        <div class="content">
+                            <h3>The Beginning of Forever</h3>
+                            <p>Tell the story of your first date...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey" id="gallery">
+            <div class="container">
+                <h2 data-aos="fade-up">Our Journey</h2>
+                <div class="photo-grid">
+                    <div class="photo-item" data-aos="zoom-in">
+                        <div class="photo-content">
+                            <img src="https://source.unsplash.com/300x300/?love,couple" alt="Memory 1">
+                            <div class="caption">Your smile here stole my heart</div>
+                        </div>
+                    </div>
+                    <div class="photo-item" data-aos="zoom-in">
+                        <div class="photo-content">
+                            <img src="https://source.unsplash.com/300x300/?romance,heart" alt="Memory 2">
+                            <div class="caption">Our first date</div>
+                        </div>
+                    </div>
+                    <div class="photo-item" data-aos="zoom-in">
+                        <div class="photo-content">
+                            <img src="https://source.unsplash.com/300x300/?love,memories" alt="Memory 3">
+                            <div class="caption">Forever together</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="letters" id="words">
+            <div class="container">
+                <h2 data-aos="fade-up">Unsent Words</h2>
+                <div class="letters-grid">
+                    <div class="letter-card" data-aos="flip-left">
+                        <div class="letter-front">
+                            <h3>My First Letter</h3>
+                            <p>Click to read...</p>
+                        </div>
+                        <div class="letter-back">
+                            <p>Dear Love,</p>
+                            <p>Write your letter here...</p>
+                        </div>
+                    </div>
+                    <!-- Add more letter cards -->
+                </div>
+            </div>
+        </section>
+
+        <section class="reflections" id="growth">
+            <div class="container">
+                <h2 data-aos="fade-up">In Love, I Grew</h2>
+                <div class="reflections-carousel" data-aos="fade-up">
+                    <div class="reflection-item">
+                        <p>"Love taught me that vulnerability is strength..."</p>
+                    </div>
+                    <!-- Add more reflection items -->
+                </div>
+            </div>
+        </section>
+
+        <section class="goodbye" id="farewell">
+            <div class="container">
+                <h2 data-aos="fade-up">Thank You for Everything</h2>
+                <div class="farewell-message" data-aos="fade-up">
+                    <p>Write your final message here...</p>
+                </div>
+                <button class="goodbye-btn" data-aos="fade-up">Goodbye</button>
+            </div>
+        </section>
+
+        <section class="memories" id="memories">
+            <div class="container">
+                <h2 data-aos="fade-up">Our Beautiful Memories</h2>
+                <div class="memory-timeline">
+                    <div class="memory-item" data-aos="fade-right">
+                        <div class="memory-date">January 2024</div>
+                        <div class="memory-content">
+                            <h3>Our First Adventure</h3>
+                            <p>Share your special memory here...</p>
+                            <div class="memory-image">
+                                <img src="https://source.unsplash.com/400x300/?adventure,couple" alt="Memory">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More memory items will be added dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="love-notes" id="love-notes">
+            <div class="container">
+                <h2 data-aos="fade-up">Love Notes</h2>
+                <div class="notes-board">
+                    <div class="add-note">
+                        <textarea placeholder="Write your love note here..."></textarea>
+                        <button class="add-note-btn">Add Note</button>
+                    </div>
+                    <div class="notes-container">
+                        <!-- Notes will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="lightbox">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+
+        <footer>
+            <p>Made with ❤️ A Love Remembered</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <audio id="background-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0c6ff1bab.mp3?filename=romantic-piano-14365.mp3" type="audio/mpeg">
+    </audio>
 </body>
 </html> 
