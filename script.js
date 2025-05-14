@@ -304,43 +304,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Create floating hearts
 function createFloatingHearts() {
+    // Remove any existing hearts container to prevent duplicates
+    const existingContainer = document.querySelector('.floating-hearts');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+
     const heartsContainer = document.createElement('div');
     heartsContainer.className = 'floating-hearts';
     document.body.appendChild(heartsContainer);
 
-    const symbols = ['❤', '💖', '💝', '💕', '💗', '💓', '💘', '💞', '💟', '💌'];
+    const symbols = ['❤️', '💑', '💏', '💘', '💝', '💖', '💕', '💗', '💓', '💞'];
     
     function createHeart() {
         const heart = document.createElement('div');
         heart.className = 'floating-heart';
         heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
         
-        // Random position across the screen width
+        // Random position across the screen width, but not in the header area
         heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.bottom = '0'; // Start from bottom
         
-        // Random size between 1.5rem and 3rem
-        const size = Math.random() * 1.5 + 1.5;
+        // Random size between 1.5rem and 2.5rem
+        const size = Math.random() * 1 + 1.5;
         heart.style.fontSize = size + 'rem';
         
-        // Random animation duration between 6 and 10 seconds
-        heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+        // Random animation duration between 8 and 12 seconds
+        heart.style.animationDuration = (Math.random() * 4 + 8) + 's';
         
         // Random starting delay
-        heart.style.animationDelay = (Math.random() * 2) + 's';
+        heart.style.animationDelay = (Math.random() * 3) + 's';
         
         heartsContainer.appendChild(heart);
 
         // Remove heart after animation
         setTimeout(() => {
             heart.remove();
-        }, 10000);
+        }, 12000);
     }
 
-    // Create hearts more frequently
-    setInterval(createHeart, 200);
+    // Create hearts less frequently (every 1.5 seconds)
+    setInterval(createHeart, 1500);
     
-    // Create initial batch of hearts
-    for(let i = 0; i < 10; i++) {
+    // Create initial batch of hearts (fewer hearts)
+    for(let i = 0; i < 5; i++) {
         createHeart();
     }
 }
@@ -348,4 +355,11 @@ function createFloatingHearts() {
 // Initialize floating hearts when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     createFloatingHearts();
+});
+
+// Reinitialize floating hearts when entering main content
+document.querySelector('.enter-btn').addEventListener('click', () => {
+    setTimeout(() => {
+        createFloatingHearts();
+    }, 1000); // Wait for the transition to complete
 }); 
