@@ -382,11 +382,17 @@ footer {
 
 @keyframes float-up {
     0% {
-        transform: translateY(100vh) scale(0);
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
         opacity: 1;
     }
     100% {
-        transform: translateY(-100px) scale(1);
+        transform: translateY(-100px) scale(1.2);
         opacity: 0;
     }
 }
@@ -990,4 +996,125 @@ footer {
         line-height: 1.4;
         margin-bottom: 1rem;
     }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes float-heart {
+    0% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.7;
+    }
+}
+
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    color: #ff6b6b;
+    font-size: 2rem;
+    animation: float-up 8s linear forwards;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.hero-content h1,
+.quote,
+.timeline-item,
+.photo-item,
+.letter-card,
+.memory-item,
+.note-card {
+    animation: float 5s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.hero-content h1:hover,
+.quote:hover,
+.timeline-item:hover,
+.photo-item:hover,
+.letter-card:hover,
+.memory-item:hover,
+.note-card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.hero-content h1 {
+    animation-delay: 0s;
+}
+
+.quote {
+    animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+.photo-item:nth-child(3n) {
+    animation-delay: 0.3s;
+}
+
+.photo-item:nth-child(3n+1) {
+    animation-delay: 0.6s;
+}
+
+.photo-item:nth-child(3n+2) {
+    animation-delay: 0.9s;
+}
+
+.letter-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.letter-card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+.memory-item:nth-child(odd) {
+    animation-delay: 0.3s;
+}
+
+.memory-item:nth-child(even) {
+    animation-delay: 0.6s;
+}
+
+.note-card:nth-child(3n) {
+    animation-delay: 0.2s;
+}
+
+.note-card:nth-child(3n+1) {
+    animation-delay: 0.4s;
+}
+
+.note-card:nth-child(3n+2) {
+    animation-delay: 0.6s;
 }
