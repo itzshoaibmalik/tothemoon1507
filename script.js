@@ -123,12 +123,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Letter Cards
+    // Letter cards
     const letterCards = document.querySelectorAll('.letter-card');
     letterCards.forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
+        card.addEventListener('click', function() {
+            const letterText = this.querySelector('.letter-text');
+            const closeBtn = this.querySelector('.close-letter');
+            
+            this.classList.toggle('active');
+            letterText.classList.toggle('active');
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.classList.remove('active');
+                    letterText.classList.remove('active');
+                });
+            }
         });
+    });
+
+    // Close button functionality
+    document.querySelectorAll('.close-letter').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const letterText = this.closest('.letter-text');
+            const overlay = document.querySelector('.letter-overlay');
+            
+            letterText.classList.remove('active');
+            overlay.classList.remove('active');
+            
+            // Re-enable scrolling
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close when clicking overlay
+    document.querySelector('.letter-overlay').addEventListener('click', function() {
+        const activeLetter = document.querySelector('.letter-text.active');
+        if (activeLetter) {
+            activeLetter.classList.remove('active');
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
     // Reflections Carousel
@@ -160,12 +197,117 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 document.body.innerHTML = `
-                    <div class="final-message">
-                        <h1>Thank You for the Memories</h1>
-                        <p>Forever in my heart...</p>
+                    <div class="final-message" style="
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        background: linear-gradient(135deg, #4a90e2, #8e44ad);
+                        color: white;
+                        text-align: center;
+                        padding: 2rem;
+                        font-family: 'Arial', sans-serif;
+                        position: relative;
+                    ">
+                        <button class="close-final-message" style="
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            background: rgba(255, 255, 255, 0.2);
+                            border: 2px solid white;
+                            color: white;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            font-size: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transition: all 0.3s ease;
+                            animation: fadeIn 1s ease 2s backwards;
+                        ">×</button>
+                        <h1 style="
+                            font-size: 3.5rem;
+                            margin-bottom: 1.5rem;
+                            animation: fadeIn 2s ease;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                        ">Our Journey Together</h1>
+                        <div style="
+                            max-width: 800px;
+                            margin: 0 auto;
+                            animation: fadeIn 2s ease 0.5s backwards;
+                        ">
+                            <p style="
+                                font-size: 1.8rem;
+                                margin-bottom: 1.5rem;
+                                line-height: 1.6;
+                            ">Every moment we've shared has been a precious gift...</p>
+                            <p style="
+                                font-size: 1.5rem;
+                                margin-bottom: 1.5rem;
+                                line-height: 1.6;
+                                font-style: italic;
+                            ">From our first hello to this goodbye,<br>
+                            Each memory we've created has made my heart fly...</p>
+                            <p style="
+                                font-size: 1.3rem;
+                                margin-bottom: 2rem;
+                                line-height: 1.6;
+                            ">Thank you for being you,<br>
+                            For all the joy and love you've brought into my life...</p>
+                        </div>
+                        <p style="
+                            font-size: 2rem;
+                            margin-top: 2rem;
+                            animation: fadeIn 2s ease 1.5s backwards;
+                            font-weight: bold;
+                            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+                        ">Forever in my heart ❤️</p>
+                        <div class="floating-hearts" style="
+                            position: fixed;
+                            width: 100%;
+                            height: 100%;
+                            pointer-events: none;
+                            z-index: 1;
+                        "></div>
                     </div>
                 `;
                 document.body.style.opacity = '1';
+                
+                // Add floating hearts to the final message
+                createFloatingHearts();
+                
+                // Add CSS animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(20px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    .final-message p {
+                        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+                    }
+                    .close-final-message:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                        transform: scale(1.1);
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Add close button functionality
+                const closeBtn = document.querySelector('.close-final-message');
+                closeBtn.addEventListener('click', () => {
+                    const finalMessage = document.querySelector('.final-message');
+                    finalMessage.style.transition = 'opacity 1s ease';
+                    finalMessage.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        // Restore the original content
+                        location.reload();
+                    }, 1000);
+                });
             }, 2000);
         });
     }
@@ -295,8 +437,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Letter Cards
     const letterCards = document.querySelectorAll('.letter-card');
     letterCards.forEach(card => {
+        const letterText = card.querySelector('.letter-text');
+        const closeBtn = card.querySelector('.close-letter');
+        
         card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
+            letterText.style.display = 'block';
+            setTimeout(() => {
+                letterText.classList.add('active');
+                closeBtn.classList.add('active');
+            }, 10);
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            letterText.classList.remove('active');
+            closeBtn.classList.remove('active');
+            setTimeout(() => {
+                letterText.style.display = 'none';
+            }, 500);
         });
     });
 
