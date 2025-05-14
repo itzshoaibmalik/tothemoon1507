@@ -123,12 +123,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Letter Cards
+    // Letter cards
     const letterCards = document.querySelectorAll('.letter-card');
     letterCards.forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
+        card.addEventListener('click', function() {
+            const letterText = this.querySelector('.letter-text');
+            const closeBtn = this.querySelector('.close-letter');
+            
+            this.classList.toggle('active');
+            letterText.classList.toggle('active');
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.classList.remove('active');
+                    letterText.classList.remove('active');
+                });
+            }
         });
+    });
+
+    // Close button functionality
+    document.querySelectorAll('.close-letter').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const letterText = this.closest('.letter-text');
+            const overlay = document.querySelector('.letter-overlay');
+            
+            letterText.classList.remove('active');
+            overlay.classList.remove('active');
+            
+            // Re-enable scrolling
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close when clicking overlay
+    document.querySelector('.letter-overlay').addEventListener('click', function() {
+        const activeLetter = document.querySelector('.letter-text.active');
+        if (activeLetter) {
+            activeLetter.classList.remove('active');
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
     // Reflections Carousel
@@ -295,8 +332,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Letter Cards
     const letterCards = document.querySelectorAll('.letter-card');
     letterCards.forEach(card => {
+        const letterText = card.querySelector('.letter-text');
+        const closeBtn = card.querySelector('.close-letter');
+        
         card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
+            letterText.style.display = 'block';
+            setTimeout(() => {
+                letterText.classList.add('active');
+                closeBtn.classList.add('active');
+            }, 10);
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            letterText.classList.remove('active');
+            closeBtn.classList.remove('active');
+            setTimeout(() => {
+                letterText.style.display = 'none';
+            }, 500);
         });
     });
 
