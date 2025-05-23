@@ -311,6 +311,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
         });
     }
+
+    // Time Counter
+    function updateTimeCounter() {
+        const now = new Date();
+        const startDate = new Date('2024-08-09T00:00:00');
+        const diff = now - startDate;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0') + 'd';
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0') + 'h';
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0') + 'm';
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0') + 's';
+    }
+
+    // Update counter immediately and then every second
+    updateTimeCounter();
+    setInterval(updateTimeCounter, 1000);
 });
 
 // Create floating hearts
